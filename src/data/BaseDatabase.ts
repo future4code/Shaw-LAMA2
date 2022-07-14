@@ -2,7 +2,6 @@ import Knex from "knex";
 import dotenv from "dotenv";
 
 dotenv.config()
-
 export abstract class BaseDatabase {
     private static connection = Knex({
         client: 'mysql',

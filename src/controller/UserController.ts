@@ -1,6 +1,6 @@
 import { Request, Response } from "express";
 import { UserBusiness } from "../business/UserBusiness";
-import { LoginInputDTO } from "../model/User";
+import { LoginInputDTO, UserInputDTO } from "../model/User";
 
 export class UserController {
 
@@ -8,12 +8,19 @@ export class UserController {
         private userBusiness = new UserBusiness
     ) { }
 
-    async signup(req: Request, res: Response) {
+    signup = async(req: Request, res: Response) => {
         try {
-
-
-        } catch (error) {
-
+            const { name, email, password, role } = req.body
+            const user: UserInputDTO = {
+                name,
+                email,
+                password,
+                role
+            }
+            const token = await this.userBusiness.signUp(user)
+            res.status(201).send({ message: "Usuário criado com sucesso!", token })
+        } catch (error: any) {
+            res.status(error.statusCode || 400).send({ message: error.message })
         }
     }
 
