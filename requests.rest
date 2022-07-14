@@ -1,15 +1,4 @@
-#SIGNUP
-POST http://localhost:3003/signup
-Content-Type: application/json
-
-{
-    "name": "Jana",
-    "email": "janaylla@gmail.com",
-    "password": "jana123",
-    "role": "ADMIN"
-}
-
-### LOGIN
+# LOGIN
 POST http://localhost:3003/login
 Content-Type: application/json
 
@@ -19,8 +8,10 @@ Content-Type: application/json
 }
 
 ### ADICIONAR BANDA
-@tokenADMIN = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjEyMyIsInJvbGUiOiJBRE1JTiIsImlhdCI6MTY1NzgyMDgxOCwiZXhwIjoxNjU3ODI0NDE4fQ._uYGQjo_jV1aJmrR4x23sbQyTowT_rcmjVJlyT5Wnxs
-@tokenNORMAL = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjQ1NiIsInJvbGUiOiJOT1JNQUwiLCJpYXQiOjE2NTc4MjkxNjQsImV4cCI6MTY1NzgzMjc2NH0.G-bnVfUNAVHJov5sX8nDYPsBVMfUljE-oImiDonYjw0
+
+@tokenADMIN = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjEyMyIsInJvbGUiOiJBRE1JTiIsImlhdCI6MTY1NzgzNDA0OSwiZXhwIjoxNjU3ODM3NjQ5fQ.oqWAhKcLTy2YD9eS1jlBK8hAnAUajvPaZ1-Wxm1qMmY
+@tokenNORMAL = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjQ1NiIsInJvbGUiOiJOT1JNQUwiLCJpYXQiOjE2NTc4MjE4NDUsImV4cCI6MTY1NzgyNTQ0NX0.PfbzhP0JYqfOVxV5i_M9ViO3RSng3TY5b7f6KUGY9eY
+
 POST http://localhost:3003/bands
 Content-Type: application/json
 authorization: {{tokenADMIN}}
@@ -29,6 +20,18 @@ authorization: {{tokenADMIN}}
     "name": "Turma do Pagode",
     "music_genre": "Pagode",
     "responsible": "Thiaguinho"
+}
+
+### ADICIONAR SHOW
+POST http://localhost:3003/show
+Content-Type: application/json
+authorization: {{tokenADMIN}}
+
+{
+    "week_day": "Saturday",
+    "start_time": 12,
+    "end_time":15,
+    "band_id": "123"
 }
 
 ### GET BAND DETAILS

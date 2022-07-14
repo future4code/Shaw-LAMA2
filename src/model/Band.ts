@@ -4,7 +4,7 @@ export class Band {
         private name: string,
         private music_genre: string,
         private responsible: string
-    ){}
+    ) { }
 
     public getId() {
         return this.id;
@@ -27,7 +27,14 @@ export class Band {
     }
 }
 
-export interface AddBandInputDTO{
+export interface AddBandInputDTO {
+    name: string,
+    music_genre: string,
+    responsible: string
+}
+
+export interface GetBand {
+    id: string,
     name: string,
     music_genre: string,
     responsible: string
