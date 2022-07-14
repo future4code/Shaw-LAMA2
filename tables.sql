@@ -1,5 +1,5 @@
 -- Active: 1657806752877@@35.226.146.116@3306@shaw-21814956-amancio
-CREATE TABLE IF NOT EXISTS lama_bandas (
+CREATE TABLE IF NOT EXISTS lama_bands (
   id VARCHAR(255) PRIMARY KEY,
   name VARCHAR(255) UNIQUE NOT NULL,
   music_genre VARCHAR(255) NOT NULL,
@@ -12,7 +12,7 @@ CREATE TABLE IF NOT EXISTS lama_shows (
   start_time INT NOT NULL,
   end_time INT NOT NULL,
   band_id VARCHAR(255) NOT NULL,
-  FOREIGN KEY(band_id) REFERENCES lama_bandas(id)
+  FOREIGN KEY(band_id) REFERENCES lama_bands(id)
 );
 
 CREATE TABLE IF NOT EXISTS lama_users (
