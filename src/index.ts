@@ -8,3 +8,4 @@ const bandController = new BandController()
 
 app.post("/login", userController.login)
 app.post("/bands", bandController.addBand)
+app.get("/bands", bandController.getDetails)

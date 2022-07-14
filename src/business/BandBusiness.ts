@@ -26,16 +26,16 @@ export class BandBusiness {
             throw new BaseError(401, "Usuário não autorizado")
         }
 
-        const bandName = await this.bandDatabate.getBandByName(name)
+        const bandName = await this.bandDatabate.getDetails(name)
 
         if(bandName.length > 0){
-            throw new BaseError(404, "Nome de banda já cadastrada")
+            throw new BaseError(409, "Nome de banda já cadastrada")
         }
 
         const bandResponsible = await this.bandDatabate.getBandByResponsible(responsible)
 
         if(bandResponsible.length > 0){
-            throw new BaseError(404, "Responsável já cadastrado em outra banda")
+            throw new BaseError(409, "Responsável já cadastrado em outra banda")
         }
 
         const id = this.idGenerator.generate()
@@ -50,5 +50,21 @@ export class BandBusiness {
         await this.bandDatabate.addBand(newBand)
 
         return newBand
+    }
+
+    async getDetails(input: string,  token: string) {
+        const validToken = this.authenticator.getData(token)
+        const idName = input
+
+        if(!validToken){
+            throw new BaseError(404, "Token inválido, verificar login")
+        }
+
+        const bandName = await this.bandDatabate.getDetails(input)
+        if(bandName.length === 0) {
+            throw new BaseError(404, "Banda não encontrada")
+        }
+        return bandName
+
     }
 }

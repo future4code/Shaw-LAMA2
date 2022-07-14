@@ -15,23 +15,36 @@ export class BandDatabate extends BaseDatabase {
         }
     }
 
-    public async getBandByName(name: string){
+    public async getDetails(input: string){
         try {
             const response: Band[] = await this.getConnection()
             .select()
             .from(this.TABLE_NAME)
-            .where({name})
+            .where(input)
             return response
         } catch (error: any) {
             throw new BaseError(500, error.sqlmessage || "Internal error.");
         }
     }
+
     public async getBandByResponsible(responsible: string){
         try {
             const response: Band[] = await this.getConnection()
             .select()
             .from(this.TABLE_NAME)
-            .where({responsible})
+            .where("responsible", "like", `%${responsible}%`)
+            return response
+        } catch (error: any) {
+            throw new BaseError(500, error.sqlmessage || "Internal error.");
+        }
+    }
+
+    public async getBandById(id: string){
+        try {
+            const response: Band[] = await this.getConnection()
+            .select()
+            .from(this.TABLE_NAME)
+            .where(id)
             return response
         } catch (error: any) {
             throw new BaseError(500, error.sqlmessage || "Internal error.");
