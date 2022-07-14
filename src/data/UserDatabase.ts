@@ -6,11 +6,13 @@ export class UserDatabase extends BaseDatabase {
 
   protected TABLE_NAME = "lama_users";
 
-  public async createUser() {
+  public async createUser(user: User) {
     try {
-
-    } catch (error) {
-
+      await this.getConnection()
+        .insert(user)
+        .into(this.TABLE_NAME)
+    } catch (error: any) {
+      throw new BaseError(500, error.sqlMessage || "Internal error.")
     }
   }
 
@@ -24,7 +26,7 @@ export class UserDatabase extends BaseDatabase {
       return response[0]
 
     } catch (error: any) {
-      throw new BaseError(500, error.sqlmessage || "Internal error.");
+      throw new BaseError(500, error.sqlMessage || "Internal error.");
     }
   }
 

@@ -1,4 +1,15 @@
-# LOGIN
+#SIGNUP
+POST http://localhost:3003/signup
+Content-Type: application/json
+
+{
+    "name": "Jana",
+    "email": "janaylla@gmail.com",
+    "password": "jana123",
+    "role": "ADMIN"
+}
+
+### LOGIN
 POST http://localhost:3003/login
 Content-Type: application/json
 
