@@ -15,7 +15,7 @@ export class BandDatabate extends BaseDatabase {
         }
     }
 
-    public async getBandByName(name: string) {
+   public async getBandByName(name: string) {
         try {
             const response: Band[] = await this.getConnection()
                 .select()
@@ -26,26 +26,38 @@ export class BandDatabate extends BaseDatabase {
             throw new BaseError(500, error.sqlmessage || "Internal error.");
         }
     }
-    public async getBandById(id: string) {
-
+    
+    public async getDetails(input: string){
         try {
-            const response: GetBand[] = await this.getConnection()
-                .select()
-                .from(this.TABLE_NAME)
-                .where({ id })
-            return response[0]
+            const response: Band[] = await this.getConnection()
+            .select()
+            .from(this.TABLE_NAME)
+            .where(input)
+            return response
         } catch (error: any) {
             throw new BaseError(500, error.sqlmessage || "Internal error.");
         }
     }
 
-    public async getBandByResponsible(responsible: string) {
+    public async getBandByResponsible(responsible: string){
         try {
             const response: Band[] = await this.getConnection()
-                .select()
-                .from(this.TABLE_NAME)
-                .where({ responsible })
+            .select()
+            .from(this.TABLE_NAME)
+            .where("responsible", "like", `%${responsible}%`)
             return response
+        } catch (error: any) {
+            throw new BaseError(500, error.sqlmessage || "Internal error.");
+        }
+    }
+
+    public async getBandById(id: string){
+        try {
+             const response: GetBand[] = await this.getConnection()
+              .select()
+              .from(this.TABLE_NAME)
+              .where({ id })
+           return response[0]
         } catch (error: any) {
             throw new BaseError(500, error.sqlmessage || "Internal error.");
         }
