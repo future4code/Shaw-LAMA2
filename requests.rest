@@ -20,7 +20,7 @@ Content-Type: application/json
 
 ### ADICIONAR BANDA
 @tokenADMIN = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjEyMyIsInJvbGUiOiJBRE1JTiIsImlhdCI6MTY1NzgyMDgxOCwiZXhwIjoxNjU3ODI0NDE4fQ._uYGQjo_jV1aJmrR4x23sbQyTowT_rcmjVJlyT5Wnxs
-@tokenNORMAL = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjQ1NiIsInJvbGUiOiJOT1JNQUwiLCJpYXQiOjE2NTc4MjE4NDUsImV4cCI6MTY1NzgyNTQ0NX0.PfbzhP0JYqfOVxV5i_M9ViO3RSng3TY5b7f6KUGY9eY
+@tokenNORMAL = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjQ1NiIsInJvbGUiOiJOT1JNQUwiLCJpYXQiOjE2NTc4MjkxNjQsImV4cCI6MTY1NzgzMjc2NH0.G-bnVfUNAVHJov5sX8nDYPsBVMfUljE-oImiDonYjw0
 POST http://localhost:3003/bands
 Content-Type: application/json
 authorization: {{tokenADMIN}}
@@ -29,4 +29,13 @@ authorization: {{tokenADMIN}}
     "name": "Turma do Pagode",
     "music_genre": "Pagode",
     "responsible": "Thiaguinho"
+}
+
+### GET BAND DETAILS
+GET http://localhost:3003/bands
+authorization: {{tokenNORMAL}}
+Content-Type: application/json
+
+{
+    "name": "my chemical romance"
 }

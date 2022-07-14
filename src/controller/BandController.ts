@@ -24,4 +24,16 @@ export default class BandController {
             res.status(error.statusCode || 400).send({ message: error.message });
         }
     }
+
+    getDetails = async(req: Request, res: Response) => {
+        const token = req.headers.authorization as string
+        const input = req.body
+
+        try {
+           const response = await this.bandBusiness.getDetails(input, token)
+           res.status(200).send(response[0])
+        } catch (error: any) {
+            res.status(error.statusCode || 400).send({ message: error.message });
+        }
+    }
 }

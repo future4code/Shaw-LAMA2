@@ -23,3 +23,4 @@ CREATE TABLE IF NOT EXISTS lama_users (
   role VARCHAR(255) NOT NULL DEFAULT "NORMAL"
 );
 
+SELECT * FROM lama_bands;
