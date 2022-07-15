@@ -25,7 +25,7 @@ describe ("Band table tests", () => {
             expect(result).toBe(Band2)
             expect(getDetails).toHaveBeenCalledWith("id_mock2")
         } catch (error: any) {
-            // console.log(error)
+            console.log(error)
         }finally{
             expect.assertions(2)
         }

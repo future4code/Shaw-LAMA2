@@ -32,7 +32,7 @@ export class BandDatabate extends BaseDatabase {
             const response: Band[] = await this.getConnection()
             .select()
             .from(this.TABLE_NAME)
-            .where(input)
+            .where({id: input}).orWhere({name: input})
             return response[0]
         } catch (error: any) {
             throw new BaseError(500, error.sqlmessage || "Internal error.");
