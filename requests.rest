@@ -29,9 +29,9 @@ Content-Type: application/json
 authorization: {{tokenADMIN}}
 
 {
-    "name": "Turma do Pagode",
-    "music_genre": "Pagode",
-    "responsible": "Thiaguinho"
+    "name": "Falamansa",
+    "music_genre": "Forró",
+    "responsible": "Tato"
 }
 
 ### ADICIONAR SHOW
@@ -52,9 +52,10 @@ authorization: {{tokenADMIN}}
 Content-Type: application/json
 
 {
-    "name": "my chemical romance"
+    "name": "Falamansa"
 }
-###
+
+### PEGAR SHOWS POR DATA
 
 @tokenAdmin = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImUzNmRkMDhmLTVhMjgtNGIyOC05MjI3LTkwZTEwMzRkM2U1YiIsInJvbGUiOiJBRE1JTiIsImlhdCI6MTY1Nzg0ODQ3NCwiZXhwIjoxNjU3ODUyMDc0fQ.9ykZRyU4Ejsqb-oiwIMdKpEwOwUqkb58BVxjYFtkC0A
 GET http://localhost:3003/show/Saturday
