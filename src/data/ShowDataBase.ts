@@ -1,5 +1,5 @@
 import { BaseError } from "../error/BaseError";
-import { GetShows, Show } from "../model/Show";
+import { GetShows, ResultShowsByDay, Show } from "../model/Show";
 import { BaseDatabase } from "./BaseDatabase";
 
 export class ShowDataBase extends BaseDatabase {
@@ -30,8 +30,8 @@ export class ShowDataBase extends BaseDatabase {
         }
     }
 
-    public async getShowsByDay(day: string) {
-        const result = await this.getConnection()
+    public async getShowsByDay(day: string): Promise<ResultShowsByDay[]> {
+        const result: ResultShowsByDay[] = await this.getConnection()
             .select("lama_bands.name", "lama_bands.music_genre")
             .from(this.TABLE_NAME).where({ week_day: day })
             .orderBy("start_time")
