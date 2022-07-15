@@ -1,13 +1,13 @@
-@tokenADMIN = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImUzNmRkMDhmLTVhMjgtNGIyOC05MjI3LTkwZTEwMzRkM2U1YiIsInJvbGUiOiJBRE1JTiIsImlhdCI6MTY1NzkwMjgzNiwiZXhwIjoxNjU3OTA2NDM2fQ.r_ywieDbqIkmmQEpDeUG_swLhdAVQmTV5bcupmmk5x8
-
+@tokenADMIN = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjhjYmViMjJlLTkwYzktNDhmZS05MzAwLWU2ZGZhNTk1ZmNlMSIsInJvbGUiOiJBRE1JTiIsImlhdCI6MTY1NzkwOTAzOSwiZXhwIjoxNjU3OTEyNjM5fQ.eh5aJ8IuuzrF7IfjLF3KFBbY7Z872O_5Zu3GP1dMRaw
+@tokenNORMAL = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjNlMTZjODM1LWIzNmItNGRhOS04NTQyLTQ2NzkwYzUzOGU1NiIsInJvbGUiOiJOT1JNQUwiLCJpYXQiOjE2NTc5MDg3MjksImV4cCI6MTY1NzkxMjMyOX0.AMJaJczK5Q5B_iAVDOMqyTPgXIK2phE2B7DhomLc8dM
 # SIGNUP
 POST http://localhost:3003/signup
 Content-Type: application/json
 
-{   "name": "Maria",
-    "email": "maria@gmail.com",
-    "password": "maria123",
-    "role": "ADMIN"
+{   "name": "supla",
+    "email": "susu@gmail.com",
+    "password": "123456789",
+    "role": ""
 }
 ###
 
@@ -28,9 +28,9 @@ Content-Type: application/json
 authorization: {{tokenADMIN}}
 
 {
-    "name": "Falamansa",
-    "music_genre": "Forró",
-    "responsible": "Tato"
+    "name": "Blink 182",
+    "music_genre": "Rock",
+    "responsible": "Laura"
 }
 
 ### ADICIONAR SHOW
@@ -39,10 +39,10 @@ Content-Type: application/json
 authorization: {{tokenADMIN}}
 
 {
-    "week_day": "Friday",
-    "start_time": 11,
-    "end_time":12,
-    "band_id": "c4c29442-92b6-4187-823a-60e8fde5720a"
+    "week_day": "SUNDAY",
+    "start_time": 14,
+    "end_time": 15,
+    "band_id": "a66155b2-5e3b-4824-bf98-6dfd8d189ca7"
 }
 
 ### GET BAND DETAILS
@@ -51,11 +51,9 @@ authorization: {{tokenADMIN}}
 Content-Type: application/json
 
 {
-    "name": "Falamansa"
+    "id": "c4c29442-92b6-4187-823a-60e8fde5720a"
 }
 
 ### PEGAR SHOWS POR DATA
-
-@tokenAdmin = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImUzNmRkMDhmLTVhMjgtNGIyOC05MjI3LTkwZTEwMzRkM2U1YiIsInJvbGUiOiJBRE1JTiIsImlhdCI6MTY1Nzg0ODQ3NCwiZXhwIjoxNjU3ODUyMDc0fQ.9ykZRyU4Ejsqb-oiwIMdKpEwOwUqkb58BVxjYFtkC0A
-GET http://localhost:3003/show/Saturday
+GET http://localhost:3003/show/Sunday
 Authorization: {{tokenADMIN}}

@@ -20,7 +20,7 @@ export default class BandController {
 
         try {
             await this.bandBusiness.addBand(input, token)
-            res.status(201).send("Banda Adicionada com sucesso")
+            res.status(201).send({message:"Banda Adicionada com sucesso"})
         } catch (error: any) {
             res.status(error.statusCode || 400).send({ message: error.message });
         }
