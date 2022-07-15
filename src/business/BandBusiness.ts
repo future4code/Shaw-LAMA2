@@ -28,7 +28,7 @@ export class BandBusiness {
 
         const bandName = await this.bandDatabate.getDetails(name)
 
-        if(bandName.length > 0){
+        if(bandName){
             throw new BaseError(409, "Nome de banda já cadastrada")
         }
 
@@ -54,14 +54,13 @@ export class BandBusiness {
 
     async getDetails(input: string,  token: string) {
         const validToken = this.authenticator.getData(token)
-        const idName = input
 
         if(!validToken){
             throw new BaseError(404, "Token inválido, verificar login")
         }
 
         const bandName = await this.bandDatabate.getDetails(input)
-        if(bandName.length === 0) {
+        if(!bandName) {
             throw new BaseError(404, "Banda não encontrada")
         }
         return bandName
