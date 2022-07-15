@@ -36,7 +36,6 @@ export class ShowDataBase extends BaseDatabase {
             .from(this.TABLE_NAME).where({ week_day: day })
             .orderBy("start_time")
             .join(this.TABLE_NAME2, "lama_shows.band_id", "lama_bands.id")
-        console.log(result)
         return result
     }
 }

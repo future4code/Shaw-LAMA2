@@ -21,7 +21,7 @@ Content-Type: application/json
 
 ### ADICIONAR BANDA
 
-@tokenADMIN = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjEyMyIsInJvbGUiOiJBRE1JTiIsImlhdCI6MTY1Nzg0NDQzMSwiZXhwIjoxNjU3ODQ4MDMxfQ.72o89vV8_6R-ycDTC2Sph8FUqAvC7D99BXI4UfDZuRE
+@tokenADMIN = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImUzNmRkMDhmLTVhMjgtNGIyOC05MjI3LTkwZTEwMzRkM2U1YiIsInJvbGUiOiJBRE1JTiIsImlhdCI6MTY1NzkwMjY5MiwiZXhwIjoxNjU3OTA2MjkyfQ.2Xixmm6w5trIW3KGmHCwPvL1BVWv2p7WauY2-9wwTGY
 @tokenNORMAL = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjQ1NiIsInJvbGUiOiJOT1JNQUwiLCJpYXQiOjE2NTc4MjE4NDUsImV4cCI6MTY1NzgyNTQ0NX0.PfbzhP0JYqfOVxV5i_M9ViO3RSng3TY5b7f6KUGY9eY
 
 POST http://localhost:3003/bands
@@ -37,7 +37,7 @@ authorization: {{tokenADMIN}}
 ### ADICIONAR SHOW
 POST http://localhost:3003/show
 Content-Type: application/json
-authorization: {{tokenAdmin}}
+authorization: {{tokenADMIN}}
 
 {
     "week_day": "Friday",
@@ -59,4 +59,4 @@ Content-Type: application/json
 
 @tokenAdmin = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImUzNmRkMDhmLTVhMjgtNGIyOC05MjI3LTkwZTEwMzRkM2U1YiIsInJvbGUiOiJBRE1JTiIsImlhdCI6MTY1Nzg0ODQ3NCwiZXhwIjoxNjU3ODUyMDc0fQ.9ykZRyU4Ejsqb-oiwIMdKpEwOwUqkb58BVxjYFtkC0A
 GET http://localhost:3003/show/Saturday
-Authorization: {{tokenAdmin}}
+Authorization: {{tokenADMIN}}
