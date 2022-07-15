@@ -1,5 +1,5 @@
 import { Request, Response } from "express";
-import { AddBandInputDTO } from "../model/Band";
+import { AddBandInputDTO, Band } from "../model/Band";
 import { BandBusiness } from "./../business/BandBusiness";
 
 export default class BandController {
@@ -30,8 +30,8 @@ export default class BandController {
         const input = req.body
 
         try {
-           const response = await this.bandBusiness.getDetails(input, token)
-           res.status(200).send(response[0])
+           const response: Band = await this.bandBusiness.getDetails(input, token)
+           res.status(200).send(response)
         } catch (error: any) {
             res.status(error.statusCode || 400).send({ message: error.message });
         }
