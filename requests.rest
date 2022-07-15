@@ -1,25 +1,36 @@
+@tokenADMIN = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjhjYmViMjJlLTkwYzktNDhmZS05MzAwLWU2ZGZhNTk1ZmNlMSIsInJvbGUiOiJBRE1JTiIsImlhdCI6MTY1NzkwOTAzOSwiZXhwIjoxNjU3OTEyNjM5fQ.eh5aJ8IuuzrF7IfjLF3KFBbY7Z872O_5Zu3GP1dMRaw
+@tokenNORMAL = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjNlMTZjODM1LWIzNmItNGRhOS04NTQyLTQ2NzkwYzUzOGU1NiIsInJvbGUiOiJOT1JNQUwiLCJpYXQiOjE2NTc5MDg3MjksImV4cCI6MTY1NzkxMjMyOX0.AMJaJczK5Q5B_iAVDOMqyTPgXIK2phE2B7DhomLc8dM
+# SIGNUP
+POST http://localhost:3003/signup
+Content-Type: application/json
+
+{   "name": "supla",
+    "email": "susu@gmail.com",
+    "password": "123456789",
+    "role": ""
+}
+###
+
+
 # LOGIN
 POST http://localhost:3003/login
 Content-Type: application/json
 
 {
-    "email": "lis@lis.com",
-    "password": "Laura"
+    "email": "maria@gmail.com",
+    "password": "maria123"
 }
 
 ### ADICIONAR BANDA
-
-@tokenADMIN = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjEyMyIsInJvbGUiOiJBRE1JTiIsImlhdCI6MTY1Nzg0NDQzMSwiZXhwIjoxNjU3ODQ4MDMxfQ.72o89vV8_6R-ycDTC2Sph8FUqAvC7D99BXI4UfDZuRE
-@tokenNORMAL = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjQ1NiIsInJvbGUiOiJOT1JNQUwiLCJpYXQiOjE2NTc4MjE4NDUsImV4cCI6MTY1NzgyNTQ0NX0.PfbzhP0JYqfOVxV5i_M9ViO3RSng3TY5b7f6KUGY9eY
 
 POST http://localhost:3003/bands
 Content-Type: application/json
 authorization: {{tokenADMIN}}
 
 {
-    "name": "Turma do Pagodesda",
-    "music_genre": "Pagode",
-    "responsible": "Thiaguinhosss"
+    "name": "Blink 182",
+    "music_genre": "Rock",
+    "responsible": "Laura"
 }
 
 ### ADICIONAR SHOW
@@ -28,10 +39,10 @@ Content-Type: application/json
 authorization: {{tokenADMIN}}
 
 {
-    "week_day": "FRIDAY",
-    "start_time": 8,
-    "end_time":9,
-    "band_id": "123"
+    "week_day": "SUNDAY",
+    "start_time": 14,
+    "end_time": 15,
+    "band_id": "a66155b2-5e3b-4824-bf98-6dfd8d189ca7"
 }
 
 ### GET BAND DETAILS
@@ -40,5 +51,9 @@ authorization: {{tokenADMIN}}
 Content-Type: application/json
 
 {
-    "name": "my chemical romance"
+    "id": "c4c29442-92b6-4187-823a-60e8fde5720a"
 }
+
+### PEGAR SHOWS POR DATA
+GET http://localhost:3003/show/Sunday
+Authorization: {{tokenADMIN}}

@@ -27,11 +27,17 @@ export class UserBusiness {
             if (password.length < 6) {
                 throw new Error("A senha deve possuir no mínimo 6 caracteres")
             }
+            if(role.toUpperCase() == "ADMIN"){
+                role = UserRole.ADMIN
+            }
+            if(role.toUpperCase() == "NORMAL"){
+                role = UserRole.NORMAL
+            }
             if (!role) {
                 role = "NORMAL"
             }
             if (role !== UserRole.NORMAL && role !== UserRole.ADMIN) {
-                throw new Error("O role passado é invalido. Preencha com os valor de NORMAL ou ADMIN")
+                throw new Error("O role passado é invalido. Preencha com os valores de NORMAL ou ADMIN")
             }
             const registeredUser = await this.userDataBase.getUserByEmail(email)
             if (registeredUser) {
@@ -59,27 +65,24 @@ export class UserBusiness {
     async login(userLogin: LoginInputDTO) {
         const { email, password } = userLogin
         try {
-            // testar parametros recebidos 
+
             if (!email || !password) {
-                throw new BaseError(422, "Missing input");
+                throw new BaseError(422, "Preencha os campos corretamente");
             }
 
-            // verificar se existe user no bd 
             const user: GetUserByEmail | undefined = await this.userDataBase.getUserByEmail(email)
             if (!user) {
-                throw new BaseError(404, "Invalid email.");
+                throw new BaseError(404, "Email inválido");
             }
 
-            // verificar password 
             const verifyPassword: boolean = await this.hashManager.compare(password, user.password)
-            // if (!verifyPassword) {
-            //     throw new BaseError(404, "Invalid password.");
-            // }
+            if (!verifyPassword) {
+                throw new BaseError(404, "Senha inválida");
+            }
 
-            // gerar token 
+
             const token: string = this.authenticator.generateToken({ id: user.id, role: user.role })
 
-            // retorno da função
             return { token: token }
 
         } catch (error: any) {

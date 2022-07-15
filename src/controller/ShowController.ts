@@ -28,4 +28,14 @@ export class ShowController {
             res.status(error.statusCode || 400).send({ message: error.message })
         }
     }
+    getShowsByData = async (req: Request, res: Response) => {
+        try {
+            const { day } = req.params
+            const token: string = req.headers.authorization as string
+            const show = await this.showBusiness.getShow(day, token)
+            res.status(200).send(show)
+        } catch (error: any) {
+            res.status(error.statusCode || 400).send({ message: error.message })
+        }
+    }
 }

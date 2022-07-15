@@ -47,6 +47,11 @@ export interface GetShows {
     band_id: string
 }
 
+export interface ResultShowsByDay {
+    name: string,
+    music_genre: string
+}
+
 export enum WeekDay {
     FRIDAY = "FRIDAY",
     SATURDAY = "SATURDAY",
