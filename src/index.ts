@@ -13,4 +13,4 @@ app.post("/login", userController.login)
 app.post("/bands", bandController.addBand)
 app.post("/show", showController.insert)
 app.get("/bands", bandController.getDetails)
-
+app.get("/show/:day", showController.getShowsByData)

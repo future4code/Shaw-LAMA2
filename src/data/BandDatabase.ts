@@ -26,16 +26,14 @@ export class BandDatabate extends BaseDatabase {
             throw new BaseError(500, error.sqlmessage || "Internal error.");
         }
     }
-
-    public async getDetails(input: string) {
+    
+    public async getDetails(input: string): Promise<Band>{
         try {
             const response: Band[] = await this.getConnection()
-                .select()
-                .from(this.TABLE_NAME)
-                .where({ id: input })
-                .orWhere({ name: input })
-
-            return response
+            .select()
+            .from(this.TABLE_NAME)
+            .where({id: input}).orWhere({name: input})
+            return response[0]
         } catch (error: any) {
             throw new BaseError(500, error.sqlmessage || "Internal error.");
         }

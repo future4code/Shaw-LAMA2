@@ -94,4 +94,18 @@ export class ShowBusiness {
             throw new BaseError(error.statusCode || 400, error.message)
         }
     }
+    getShow = async (day: string, token: string) => {
+        if (!day) {
+            throw new Error("Insira um dia de show")
+        }
+        const tokenData: AuthenticationData = this.authenticator.getData(token)
+        if (tokenData.role !== "ADMIN") {
+            throw new BaseError(401, "Unauthorized.");
+        }
+        const showDatabase = await this.showDataBase.getShowsByDay(day)
+        if (!showDatabase) {
+            throw new Error("Não existe show neste dia")
+        }
+        return showDatabase
+    }
 }

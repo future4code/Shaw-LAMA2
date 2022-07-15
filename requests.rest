@@ -1,10 +1,22 @@
+# SIGNUP
+POST http://localhost:3003/signup
+Content-Type: application/json
+
+{   "name": "Maria",
+    "email": "maria@gmail.com",
+    "password": "maria123",
+    "role": "ADMIN"
+}
+###
+
+
 # LOGIN
 POST http://localhost:3003/login
 Content-Type: application/json
 
 {
-    "email": "lis@lis.com",
-    "password": "Laura"
+    "email": "maria@gmail.com",
+    "password": "maria123"
 }
 
 ### ADICIONAR BANDA
@@ -17,21 +29,21 @@ Content-Type: application/json
 authorization: {{tokenADMIN}}
 
 {
-    "name": "Turma do Pagodesda",
-    "music_genre": "Pagode",
-    "responsible": "Thiaguinhosss"
+    "name": "Falamansa",
+    "music_genre": "Forró",
+    "responsible": "Tato"
 }
 
 ### ADICIONAR SHOW
 POST http://localhost:3003/show
 Content-Type: application/json
-authorization: {{tokenADMIN}}
+authorization: {{tokenAdmin}}
 
 {
-    "week_day": "FRIDAY",
-    "start_time": 8,
-    "end_time":9,
-    "band_id": "123"
+    "week_day": "Friday",
+    "start_time": 11,
+    "end_time":12,
+    "band_id": "c4c29442-92b6-4187-823a-60e8fde5720a"
 }
 
 ### GET BAND DETAILS
@@ -40,5 +52,11 @@ authorization: {{tokenADMIN}}
 Content-Type: application/json
 
 {
-    "name": "my chemical romance"
+    "name": "Falamansa"
 }
+
+### PEGAR SHOWS POR DATA
+
+@tokenAdmin = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImUzNmRkMDhmLTVhMjgtNGIyOC05MjI3LTkwZTEwMzRkM2U1YiIsInJvbGUiOiJBRE1JTiIsImlhdCI6MTY1Nzg0ODQ3NCwiZXhwIjoxNjU3ODUyMDc0fQ.9ykZRyU4Ejsqb-oiwIMdKpEwOwUqkb58BVxjYFtkC0A
+GET http://localhost:3003/show/Saturday
+Authorization: {{tokenAdmin}}

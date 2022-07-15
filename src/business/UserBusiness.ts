@@ -31,7 +31,7 @@ export class UserBusiness {
                 role = "NORMAL"
             }
             if (role !== UserRole.NORMAL && role !== UserRole.ADMIN) {
-                throw new Error("O role passado é invalido. Preencha com os valor de NORMAL ou ADMIN")
+                throw new Error("O role passado é invalido. Preencha com os valores de NORMAL ou ADMIN")
             }
             const registeredUser = await this.userDataBase.getUserByEmail(email)
             if (registeredUser) {

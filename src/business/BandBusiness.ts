@@ -28,7 +28,7 @@ export class BandBusiness {
 
         const bandName = await this.bandDatabate.getDetails(name)
 
-        if (bandName.length > 0) {
+        if(bandName){
             throw new BaseError(409, "Nome de banda já cadastrada")
         }
 
@@ -60,7 +60,7 @@ export class BandBusiness {
         }
 
         const bandName = await this.bandDatabate.getDetails(input)
-        if (bandName.length === 0) {
+        if(!bandName) {
             throw new BaseError(404, "Banda não encontrada")
         }
         return bandName
