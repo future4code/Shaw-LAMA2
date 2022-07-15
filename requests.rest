@@ -3,13 +3,13 @@ POST http://localhost:3003/login
 Content-Type: application/json
 
 {
-    "email": "lis@gmail.com",
+    "email": "lis@lis.com",
     "password": "Laura"
 }
 
 ### ADICIONAR BANDA
 
-@tokenADMIN = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjEyMyIsInJvbGUiOiJBRE1JTiIsImlhdCI6MTY1NzgzNDA0OSwiZXhwIjoxNjU3ODM3NjQ5fQ.oqWAhKcLTy2YD9eS1jlBK8hAnAUajvPaZ1-Wxm1qMmY
+@tokenADMIN = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjEyMyIsInJvbGUiOiJBRE1JTiIsImlhdCI6MTY1Nzg0NDQzMSwiZXhwIjoxNjU3ODQ4MDMxfQ.72o89vV8_6R-ycDTC2Sph8FUqAvC7D99BXI4UfDZuRE
 @tokenNORMAL = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjQ1NiIsInJvbGUiOiJOT1JNQUwiLCJpYXQiOjE2NTc4MjE4NDUsImV4cCI6MTY1NzgyNTQ0NX0.PfbzhP0JYqfOVxV5i_M9ViO3RSng3TY5b7f6KUGY9eY
 
 POST http://localhost:3003/bands
@@ -17,9 +17,9 @@ Content-Type: application/json
 authorization: {{tokenADMIN}}
 
 {
-    "name": "Turma do Pagode",
+    "name": "Turma do Pagodesda",
     "music_genre": "Pagode",
-    "responsible": "Thiaguinho"
+    "responsible": "Thiaguinhosss"
 }
 
 ### ADICIONAR SHOW
@@ -28,15 +28,15 @@ Content-Type: application/json
 authorization: {{tokenADMIN}}
 
 {
-    "week_day": "Saturday",
-    "start_time": 12,
-    "end_time":15,
+    "week_day": "FRIDAY",
+    "start_time": 8,
+    "end_time":9,
     "band_id": "123"
 }
 
 ### GET BAND DETAILS
 GET http://localhost:3003/bands
-authorization: {{tokenNORMAL}}
+authorization: {{tokenADMIN}}
 Content-Type: application/json
 
 {
