@@ -9,20 +9,20 @@ export class BandBusiness {
         private bandDatabate = new BandDatabate(),
         private idGenerator = new IdGenerator(),
         private authenticator = new Authenticator()
-    ){}
+    ) { }
 
     async addBand(input: AddBandInputDTO, token: string) {
-        const{name, music_genre, responsible} = input
+        const { name, music_genre, responsible } = input
 
-        if(!name || !music_genre || !responsible) {
+        if (!name || !music_genre || !responsible) {
             throw new BaseError(422, "Preencha todos os campos")
         }
 
         const validToken = this.authenticator.getData(token)
-        if(!validToken) {
+        if (!validToken) {
             throw new BaseError(404, "Token inválido, verificar login")
         }
-        if(validToken.role !== "ADMIN") {
+        if (validToken.role !== "ADMIN") {
             throw new BaseError(401, "Usuário não autorizado")
         }
 
@@ -34,7 +34,7 @@ export class BandBusiness {
 
         const bandResponsible = await this.bandDatabate.getBandByResponsible(responsible)
 
-        if(bandResponsible.length > 0){
+        if (bandResponsible.length > 0) {
             throw new BaseError(409, "Responsável já cadastrado em outra banda")
         }
 
@@ -52,10 +52,10 @@ export class BandBusiness {
         return newBand
     }
 
-    async getDetails(input: string,  token: string) {
+    async getDetails(input: string, token: string) {
         const validToken = this.authenticator.getData(token)
 
-        if(!validToken){
+        if (!validToken) {
             throw new BaseError(404, "Token inválido, verificar login")
         }
 

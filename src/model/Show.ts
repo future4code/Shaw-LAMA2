@@ -1,7 +1,7 @@
 export class Show {
     constructor(
         private id: string,
-        private week_day: string,
+        private week_day: WeekDay,
         private start_time: number,
         private end_time: number,
         private band_id: string
@@ -33,7 +33,7 @@ export class Show {
 }
 
 export interface AddShowInputDTO {
-    week_day: string,
+    week_day: WeekDay,
     start_time: number,
     end_time: number,
     band_id: string
@@ -41,10 +41,15 @@ export interface AddShowInputDTO {
 
 export interface GetShows {
     id: string,
-    week_day: string,
+    week_day: WeekDay,
     start_time: number,
     end_time: number,
     band_id: string
+}
+
+export interface ResultShowsByDay {
+    name: string,
+    music_genre: string
 }
 
 export enum WeekDay {

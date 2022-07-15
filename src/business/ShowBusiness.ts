@@ -22,6 +22,10 @@ export class ShowBusiness {
             if (tokenData.role !== "ADMIN") {
                 throw new BaseError(401, "Unauthorized.");
             }
+            const validToken = this.authenticator.getData(token)
+            if (!validToken) {
+                throw new BaseError(404, "Invalid token.")
+            }
 
             let { week_day, start_time, end_time, band_id } = show
 
@@ -57,12 +61,19 @@ export class ShowBusiness {
             // verificar se já existe show marcado 
             const shows: GetShows[] = await this.showDataBase.getShows()
             const sameDateShows: GetShows[] = []
+            // logica louca dos horarios 
             for (let show of shows) {
-                if (show.start_time === start_time && show.week_day === week_day) {
+                if ((show.start_time === start_time && week_day === show.week_day)
+                    ||
+                    (show.start_time > start_time && week_day === show.week_day && show.start_time < end_time)
+                    ||
+                    (show.start_time < start_time && week_day === show.week_day && show.start_time > end_time)
+                ) {
                     sameDateShows.push(show)
                 }
             }
-            if (sameDateShows.length) {
+
+            if (sameDateShows.length !== 0) {
                 throw new BaseError(422, "There is a show already happening at this day and time.");
             }
 
