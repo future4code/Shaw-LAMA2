@@ -1,3 +1,5 @@
+@tokenADMIN = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImUzNmRkMDhmLTVhMjgtNGIyOC05MjI3LTkwZTEwMzRkM2U1YiIsInJvbGUiOiJBRE1JTiIsImlhdCI6MTY1NzkwMjgzNiwiZXhwIjoxNjU3OTA2NDM2fQ.r_ywieDbqIkmmQEpDeUG_swLhdAVQmTV5bcupmmk5x8
+
 # SIGNUP
 POST http://localhost:3003/signup
 Content-Type: application/json
@@ -20,9 +22,6 @@ Content-Type: application/json
 }
 
 ### ADICIONAR BANDA
-
-@tokenADMIN = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImUzNmRkMDhmLTVhMjgtNGIyOC05MjI3LTkwZTEwMzRkM2U1YiIsInJvbGUiOiJBRE1JTiIsImlhdCI6MTY1Nzg5ODgzMiwiZXhwIjoxNjU3OTAyNDMyfQ.dB8OJTwUxgvPV05ofp4SdGB16Hj44JseCJPSMXyXYzk
-@tokenNORMAL = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjQ1NiIsInJvbGUiOiJOT1JNQUwiLCJpYXQiOjE2NTc4MjE4NDUsImV4cCI6MTY1NzgyNTQ0NX0.PfbzhP0JYqfOVxV5i_M9ViO3RSng3TY5b7f6KUGY9eY
 
 POST http://localhost:3003/bands
 Content-Type: application/json
