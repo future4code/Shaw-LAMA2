@@ -14,6 +14,7 @@ Foi solicitado o desenvolvimento de um sistema interno de um novo festival de m�
 
 ## ⚙️ Funções e regras de negócio desenvolvidas:
 
+- Fizemos testes com *JEST* para elaboração dos endpoints, padronizando as entrtadas e saídas do projeto.
 - No *Cadastro*, temos 2 tipos de usuários com autorizações diferentes, um usuário NORMAL e um usuário ADMIN. Estes são diferenciados por um token personalizado gerado pela biblioteca JWT (json-web-token), além e um ID aleatório gerado pela biblioteca UUID.
 - No *Login* é gerado um novo token, também personalizado de acordo com o papel do usuário (normal ou admin).
 - Para *Registrar Banda* é preciso ser um usuário ADMIN. Além disso, não pode existir 2 ou mais bandas com mesmo nome, nem mesmo responsável.
@@ -27,6 +28,7 @@ Foi solicitado o desenvolvimento de um sistema interno de um novo festival de m�
 ## :desktop_computer: Linguagens e Bibliotecas usadas:
 - Typescript;
 - Node;
+- Jest;
 - Express;
 - Knex;
 - Cors;
