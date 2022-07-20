@@ -1,4 +1,4 @@
-<h1 align="center">:musical_note: Labenu Music Awards :musical_note:</h1>
+<h1 align="center">:musical_note: labenu Music Awards :musical_note:</h1>
 
 <br>
 
